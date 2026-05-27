@@ -2,7 +2,7 @@ clear all;
 close all;
 clc;
 
-folderRoot = '../DATA/';
+folderRoot = '../data/';
 addpath('./LearningTools');
 addpath('./LearningTools/Regression');
 
@@ -164,7 +164,7 @@ tmp = (sum( ( IN.outMML.coords{1}(1:numDimMax,:) - IN.outMML.coords{2}(1:numDimM
 idx_highestDiff_RG = find( tmp == min(tmp) ); %%% change to "min" for the lowest uncertainty
 disp(listInfo(:,idx_highestDiff_RG));
 %%% uncertainty on this specific sample
-RG = uncertaintyNdesc(IN,idx_highestDiff_RG);
+RG = divergenceNdesc(IN,idx_highestDiff_RG);
 toc;
 
 tic;
@@ -177,7 +177,7 @@ tmp = (sum( ( IN.outMML.coords{1}(1:numDimMax,:) - IN.outMML.coords{2}(1:numDimM
 idx_highestDiff_GR = find( tmp == min(tmp) ); %%% change to "min" for the lowest uncertainty
 disp(listInfo(:,idx_highestDiff_GR));
 %%% uncertainty on this specific sample
-GR = uncertaintyNdesc(IN,idx_highestDiff_GR);
+GR = divergenceNdesc(IN,idx_highestDiff_GR);
 toc;
 
 %% OUTPUT VISUALIZATION
